@@ -1,0 +1,1 @@
+DIR_CHECK=$([ -d "/home/pi/pi-mas/" ] && echo true || echo false)
