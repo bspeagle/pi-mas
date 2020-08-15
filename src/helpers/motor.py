@@ -38,4 +38,6 @@ def run_motor():
                 GPIO.output(control_pins[pin], halfstep_seq[halfstep][pin])
             time.sleep(0.001)
 
+    LOGGER.debug("That's it folks!")
+
     GPIO.cleanup()

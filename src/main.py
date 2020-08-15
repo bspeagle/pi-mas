@@ -28,5 +28,8 @@ def do_thing_somewhere_else(app_method):
 
 
 # do_thing_somewhere_else(music.play_music)
+
+music.MUSIC_STATUS = True
+
 do_thing_somewhere_else(lights.start_lights)
-# do_thing_somewhere_else(motor.run_motor)
+do_thing_somewhere_else(motor.run_motor)

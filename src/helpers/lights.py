@@ -13,16 +13,18 @@ def start_lights():
     Turn the lights on!
     """
 
-    gpio_pin = 7
+    gpio_pins = [7, 11]
 
     set_warnings = bool(os.getenv('ENV').upper() == 'DEV')
     GPIO.setwarnings(set_warnings)
 
     GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(gpio_pin, GPIO.OUT, initial=GPIO.LOW)
 
-    GPIO.output(gpio_pin, GPIO.HIGH)
+    for pin in gpio_pins:
+        GPIO.setup(pin, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.output(pin, GPIO.HIGH)
 
     while music.MUSIC_STATUS:
         if not music.MUSIC_STATUS:
-            GPIO.output(gpio_pin, GPIO.LOW)
+            for pin in gpio_pins:
+                GPIO.output(pin, GPIO.LOW)
